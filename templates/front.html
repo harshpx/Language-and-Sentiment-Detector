@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Machine Learning with Texts!</title>
+  <style>
+    body {
+      font-family: Calibri, Arial, sans-serif;
+      text-align: center;
+      background-color: black;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+    }
+
+    .container {
+      width: 500px;
+      height: 200px; /* Increase the height as desired */
+      margin: 0 auto;
+      padding: 40px;
+      background-color: rgba(31, 56, 56, 0.97);
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      animation: fadeIn 4s ease-in-out forwards;
+      transition: opacity 0.3s ease;
+      display: flex; /* Use flexbox to center the contents vertically and horizontally */
+      flex-direction: column; /* Arrange the contents in a column */
+      justify-content: center; /* Center the contents vertically */
+      align-items: center; /* Center the contents horizontally */
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0; /* Start with 0 opacity */
+      }
+      100% {
+        opacity: 1; /* End with full opacity */
+      }
+    }
+
+    h1 {
+      color: white;
+      font-weight: normal;
+      margin-bottom: 30px;
+      margin-top: 0;
+    }
+
+    p {
+      color: white;
+      font-weight: normal;
+      margin-bottom: 30px;
+      margin-top: 0;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+      animation-delay: 2.5s; /* Delay the animation to start after the heading text animation */
+    }
+
+
+    .get-started-btn {
+      opacity: 0;
+      animation: floatUp 1s ease-in-out forwards;
+      animation-delay: 3.5s; /* Delay the animation to start after the heading text and paragraph animation */
+      /* transform: translateY(20px); */
+      transition: transform 0.3s ease;
+    }
+
+    @keyframes floatUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    input[type="submit"] {
+      background-color: #59a9a9;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #377777;
+      transform: scale(1.1);
+      transition: transform 0.3s ease;
+    }
+
+    /* CSS gradient fallback */
+    body {
+      position: relative;
+      z-index: 1;
+    }
+
+    .background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-image: url('https://drive.google.com/uc?id=1BACft-Jbp_rNPy2HF-p3k3pld8joR1TL');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      opacity: 0;
+      /* transition: opacity 0.5s ease; */
+      /* filter: blur(10px); */
+      filter: blur(20px); /* Start with a high blur value */
+      opacity: 0;
+      transition: filter 1s ease, opacity 2s ease;
+    }
+
+    body.loaded .background-image {
+      filter: blur(7px); /* Gradually unblur the image */
+      opacity: 1;
+    }
+
+    .typing-text {
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 1px solid white;
+      animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink-caret {
+      from, to {
+        border-color: transparent;
+      }
+      50% {
+        border-color: white;
+      }
+    }
+  </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+  <script>
+    window.addEventListener('load', function() {
+      var bgImage = new Image();
+      bgImage.onload = function() {
+        document.body.classList.add('loaded');
+        document.querySelector('.container').style.opacity = '1'; // Set opacity to 1 to trigger the animation
+      };
+      bgImage.src = 'https://drive.google.com/uc?id=1BACft-Jbp_rNPy2HF-p3k3pld8joR1TL';
+
+      // Typing text animation
+      var typed = new Typed('.typing-text', {
+        strings: ["Machine Learning with Texts!"],
+        typeSpeed: 36,
+        showCursor: false,
+        onComplete: function() {
+          document.querySelector('p').style.opacity = '1'; // Show the <p> tag after the typing animation completes
+          document.querySelector('.get-started-btn').style.opacity = '1'; // Show the "Get Started" button after all the text above it gets displayed
+          document.querySelector('.get-started-btn').classList.add('float-up'); // Add the float-up animation class to the "Get Started" button
+          document.querySelector('input[type="submit"]').disabled = false; // Enable the submit button after typing animation completes
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1><span class="typing-text"></span></h1>
+    <p>A Machine Learning and Deep Learning Project to make machine analyze and predict from texts.</p>
+    <form method="post" action="/get_started">
+      <input type="submit" value="Get Started" class="get-started-btn">
+    </form>
+  </div>
+  <div class="background-image"></div>
+</body>
+</html>

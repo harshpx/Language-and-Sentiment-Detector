@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Machine Learning with Texts!</title>
+  <style>
+    body {
+      font-family: Calibri, Arial, sans-serif;
+      text-align: center;
+      background-color: black;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0; /* Start with 0 opacity */
+      }
+      100% {
+        opacity: 1; /* End with full opacity */
+      }
+    }
+
+    /* CSS gradient fallback */
+    body {
+      position: relative;
+      z-index: 1;
+    }
+
+    .background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-image: url('https://drive.google.com/uc?id=1BACft-Jbp_rNPy2HF-p3k3pld8joR1TL');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      opacity: 0;
+      filter: blur(20px); /* Start with a high blur value */
+      opacity: 0;
+      transition: filter 1s ease, opacity 2s ease;
+    }
+
+    body.loaded .background-image {
+      filter: blur(7px); /* Gradually unblur the image */
+      opacity: 1;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .heading {
+      color: #FFF;
+      font-size: 36px;
+      margin-bottom: 20px;
+      opacity: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: fadeIn 3s ease forwards;
+      animation-delay: 1s;
+      position: relative;
+    }
+
+    /* .heading::after {
+      content: '!';
+      opacity: 1;
+      margin-left: 5px;
+      animation: cursorBlink 1s infinite;
+    } */
+
+    /* @keyframes typing {
+      0% {width: 0;}
+      100% {width: 100%;}
+    } */
+
+    /* @keyframes cursorBlink {
+      50% {opacity: 0;}
+    } */
+
+    .form-container {
+      margin: 0 20px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(29, 63, 63, 0.8);
+      border-radius: 20px;
+      border: none;
+      opacity: 0;
+      color: #FFF;
+      font-size: 20px;
+      font-weight: normal;
+      font-family: 'Arial', sans-serif;
+      transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+      animation: fadeIn 3s ease forwards;
+      animation-delay: 1s;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+      opacity: 1;
+      background-color: rgba(28, 103, 103, 0.95);
+    }
+  </style>
+  <script>
+    window.addEventListener('load', function() {
+      var bgImage = new Image();
+      bgImage.onload = function() {
+        document.body.classList.add('loaded');
+        document.querySelectorAll('.button').forEach(function(button) {
+          button.style.opacity = '1';
+        });
+      };
+      bgImage.src = 'https://drive.google.com/uc?id=1BACft-Jbp_rNPy2HF-p3k3pld8joR1TL';
+    });
+  </script>
+</head>
+<body>
+  <div class="background-image"></div>
+  <div class="container">
+    <h1 class="heading">Available models</h1>
+    <div class="button-container">
+      <div class="form-container">
+        <form id="form1" action="/emotion" method="post">
+          <button class="button" type="submit" form="form1">Emotion and<br>Sentiment Detector</button>
+        </form>
+      </div>
+      <div class="form-container">
+        <form id="form2" action="/language" method="post">
+          <button class="button" type="submit" form="form2">Language<br>Detector</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
