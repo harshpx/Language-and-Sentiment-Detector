@@ -49,6 +49,7 @@ Read more about RNNs and LSTMs: [RNNs and LSTMs-Builtin.com](https://builtin.com
 3. **Language Detection**
 * It is a Multiclass classification Model, uses a Dataset of 22000 text samples of 22 different languages. (1000 data instances of each language)
 * Model is trained using `Naive Bayes` algorithm. ```Naive Bayes is a classification algorithm based on Bayes' theorem. It assumes that the features in the input data are independent of each other given the class label.```
+
 Read more about Naive Bayes: [Naive Bayes Classifier Explained-Analytics Vidya](https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/)
 
 
