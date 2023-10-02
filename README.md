@@ -13,7 +13,7 @@ A Flask based web app that contains multiple Machine Learning models using NLP.
 It uses various trained Machine Learning and Deep Learning models at the backend, and API is created using Flask.
 ## How to run this app?
 #### To see this app working live: 
-Hop onto: [http://13.233.232.159:5000/](http://13.233.232.159:5000/)
+Hop onto: [http://3.110.33.144:5000/](http://3.110.33.144:5000/)
 
 
 #### To run this project on your local system: 
