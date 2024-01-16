@@ -14,8 +14,16 @@ It uses various trained Machine Learning and Deep Learning models at the backend
 
 
 #### To run this project on your local system: 
-Download the repo, unzip and simply run
-```app.py```
+
+##### (Using git)
+```
+mkdir project
+cd project
+git clone https://github.com/harshpx/Language-and-Sentiment-Detector.git
+pip install -r requirements.txt
+app.py
+```
+
 in the terminal of the file directory (you will get a local link)
 ## Brief Project Description
 This Project currently uses 3 trained Machine Learning and Deep Learning Models.
