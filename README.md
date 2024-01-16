@@ -24,7 +24,6 @@ pip install -r requirements.txt
 app.py
 ```
 
-in the terminal of the file directory (you will get a local link)
 ## Brief Project Description
 This Project currently uses 3 trained Machine Learning and Deep Learning Models.
 
