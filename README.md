@@ -11,9 +11,6 @@ A Flask based web app that contains multiple Machine Learning models using NLP.
 * Language Detector(عربي, हिंदी, Engilsh, แบบไทย etc.)
 
 It uses various trained Machine Learning and Deep Learning models at the backend, and API is created using Flask.
-## How to run this app?
-#### To see this app working live: 
-Hop onto: [http://3.110.33.144:5000/](http://3.110.33.144:5000/)
 
 
 #### To run this project on your local system: 
